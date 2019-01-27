@@ -1,15 +1,5 @@
 'use strict';
 
-//function that listens for the form submit
-
-//function that handles the fetch
-
-//function that displays the results of the search
-
-//function that loads at the first load of the page
-
-'use strict';
-
 const apiKey = 'xrVbUsjvIHtShE1PeC6Qxe4C18IEpT0UwRC6j3X3'; 
 const searchURL = 'https://api.nasa.gov/DONKI/notifications?startDate=2014-05-01&endDate=2014-05-08&type=all&api_key=xrVbUsjvIHtShE1PeC6Qxe4C18IEpT0UwRC6j3X3';
 
@@ -43,6 +33,24 @@ function getSpaceWeather(query) {
       $('#js-error-message').text(`Something went wrong: ${err.message}`);
     });
 }
+
+function displayResults(responseJson) {
+    // if there are previous results, remove them
+    console.log(responseJson);
+    $('#results-list').empty();
+    // iterate through the items array
+    responseJson.data.forEach(park => {
+      $('#results-list').append(
+        `<li>
+          <h3>${park.name}</h3>
+          <p>${park.description}</p>
+         </li>`
+      );
+    });
+    //display the results section  
+    $('#results-list').removeClass('hidden');
+  };
+  
 
 function watchForm() {
   $('form').submit(event => {
