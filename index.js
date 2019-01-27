@@ -14,7 +14,7 @@ function formatQueryParams(params) {
 function getSpaceWeather(query) {
   const params = {
     key: apiKey,
-    type:  'all, FLR, SEP, CME, IPS, MPC, GST, RBE'
+    type:  'all, FLR, SEP, CME, IPS, MPC, GST, RBE',
     startDate: 'yyyy-MM-dd',
     endDate: 'yyyy-MM-dd', 
   };
@@ -50,7 +50,6 @@ function displayResults(responseJson) {
     //display the results section  
     $('#results-list').removeClass('hidden');
   };
-  
 
 function watchForm() {
   $('form').submit(event => {
