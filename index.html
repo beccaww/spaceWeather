@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="Space Weather App" content="width=device-width">
+    <title>Space Weather App</title>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    <link href="grid.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header role="banner"><h1>SPACE WEATHER REPORT</h1></header>
+    <section class="sideBar">
+      <h2>Get the report for:</h2>
+      <ul class="weatherList">
+        <li>FLR:<br>Solar Flare</li>
+        <li>SEP:<br>Solar Energetic Particle</li>
+        <li>CME:<br>Coronal Mass Ejection</li>
+        <li>IPS:<br>Interplanetary Shock</li>
+        <li>MPC:<br>Magnetopause Crossing</li>
+        <li>GST:<br>Geomagnetic Storm</li>
+        <li>RBE:<br>Radiation Belt Enhancement</li>
+      </ul>
+    </section>
+    <section class="searchBox">
+      <form>
+         Search:<br>
+          <input type="text" name="weather" value="all">
+          <br>
+          Start Date:<br>
+          <input type="text" name="startDate" value="yyyy-MM-dd">
+          <br>
+          End Date:<br>
+          <input type="text" name="startDate" value="yyyy-MM-dd">
+          <br>
+          <input type="submit" value="Go!">
+        </form>
+    </section>
+    <script src="index.js"></script>
+  </body>
+</html>

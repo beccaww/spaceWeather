@@ -1,0 +1,34 @@
+*{
+  box-sizing: border-box;  
+}
+
+body {
+  position: relative;
+}
+
+header {
+  text-align: center; 
+  background: blue; 
+  color: white; 
+}
+
+.sideBar {
+  display: inline-block;
+  background: blue; 
+  color: white; 
+  padding: 20px;
+}
+
+.weatherList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.searchBox {
+  position: absolute;
+  display: inline-block;
+  left: 320px;  
+  background: blue; 
+  color: white; 
+}
