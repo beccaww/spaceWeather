@@ -17,7 +17,10 @@ function renderFLR(responseJson) {
     responseJson.forEach(message => {
       $('#results-list').append(
         `<li>
-          <p>${message.flrID}</p>
+          <p>Flare ID: ${message.flrID}</p>
+          <p>Begin Time: ${message.beginTime}</p>
+          <p>Class Type: ${message.classType}</p>
+          <p>Peak Time: ${message.peakTime}</p>
          </li>`
      );
     });
@@ -31,7 +34,9 @@ function renderSEP(responseJson) {
     responseJson.forEach(message => {
       $('#results-list').append(
         `<li>
-          <p>${message.sepID}</p>
+          <p>ID: ${message.sepID}</p>
+          <p>Event Time: ${message.eventTime}</p>
+          <p>Instruments: ${message.instruments}</p>
          </li>`
       );
     });
@@ -44,7 +49,8 @@ function renderCME(responseJson) {
   responseJson.forEach(message => {
     $('#results-list').append(
       `<li>
-        <p>${message.activityID}</p>
+        <p>Activity ID: ${message.activityID}</p>
+        <p>Start Time: ${message.startTime}</p>
         <p>${message.note}</p>
        </li>`
     );
@@ -58,7 +64,23 @@ function renderIPS(responseJson) {
   responseJson.forEach(message => {
     $('#results-list').append(
       `<li>
-        <p>${message.activityID}</p>
+        <p>ID: ${message.activityID}</p>
+        <p>Location: ${message.location}</p>
+        <p>Event Time: ${message.eventTime}</p>
+       </li>`
+    );
+  });
+  $('#results-list').removeClass('hidden');
+};
+
+function renderMPC(responseJson) {
+  console.log(responseJson);
+  $('#results-list').empty();
+  responseJson.forEach(message => {
+    $('#results-list').append(
+      `<li>
+        <p>ID: ${message.mpcID}</p>
+        <p>Event Time: ${message.eventTime}</p>
        </li>`
     );
   });
@@ -71,7 +93,8 @@ function renderGST(responseJson) {
   responseJson.forEach(message => {
     $('#results-list').append(
       `<li>
-        <p>${message.gstID}</p>
+        <p>ID: ${message.gstID}</p>
+        <p>Start Time: ${message.startTime}</p>
        </li>`
     );
   });
@@ -84,7 +107,9 @@ function renderRBE(responseJson) {
   responseJson.forEach(message => {
     $('#results-list').append(
       `<li>
-        <p>${message.rbeID}</p>
+        <p>ID: ${message.rbeID}</p>
+        <p>Event Time: ${message.eventTime}</p>
+        <p>Instruments: ${message.instruments}</p>
        </li>`
     );
   });
@@ -111,6 +136,8 @@ if (type === 'FLR') {
   renderMethod = renderCME; 
 } else if (type === 'IPS') {
 renderMethod = renderIPS; 
+} else if (type === 'MPC') {
+  renderMethod = renderMPC; 
 } else if (type === 'GST') {
   renderMethod = renderGST; 
 } else if (type === 'RBE') {
