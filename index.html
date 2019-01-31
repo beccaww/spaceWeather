@@ -25,18 +25,26 @@
     <section class="searchBox">
       <form>
          Search:<br>
-          <input type="text" name="weather" value="all">
+          <select class="weather">
+            <option value="FLR">Solar Flare</option>
+            <option value="SEP">Solar Energetic Particle</option>
+            <option value="CME">Coronal Mass Ejection</option>
+            <option value="IPS">Interplanetary Shock</option>
+            <option value="MPC">Magnetopause Crossing</option>
+            <option value="GST">Geomagnetic Storm</option>
+            <option value="RBE">Radiation Belt Enhancement</option>
+          </select>
           <br>
           Start Date:<br>
-          <input type="text" name="startDate" value="yyyy-MM-dd">
+          <input class="startDate" type="date" name="startDate" value="2016-01-01">
           <br>
           End Date:<br>
-          <input type="text" name="startDate" value="yyyy-MM-dd">
+          <input class="endDate" type="date" name="endDate" value="2016-01-30">
           <br>
           <input type="submit" value="Go!">
         </form>
     </section>
-    <ul id="results list" class="results hidden"></ul>
+    <ul id="results-list" class="results hidden"></ul>
     <script src="index.js"></script>
   </body>
 </html>
