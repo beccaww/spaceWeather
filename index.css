@@ -36,3 +36,9 @@ header {
 .hidden {
   display: none; 
 }
+
+.results {
+  background: blue; 
+  color: white; 
+  padding: 20px; 
+}
