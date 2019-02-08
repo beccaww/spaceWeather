@@ -116,72 +116,68 @@ function renderRBE(responseJson) {
   $('#results-list').removeClass('hidden');
 };
 
-function getSpaceWeather(type, startDate, endDate) {
+function getSpaceWeather(startDate, endDate) {
+  const types = ['FLR', 'SEP', 'CME', 'GST'];
   const params = {
     api_key: apiKey,
     //type:  type,
     startDate: startDate,
     endDate: endDate, 
   };
-  const queryString = formatQueryParams(params)
-  const url = searchURL + type + '?' + queryString;
 
-let renderMethod; 
 
-if (type === 'FLR') {
-  renderMethod = renderFLR; 
-} else if (type === 'SEP') {
-  renderMethod = renderSEP;
-} else if (type === 'CME') {
-  renderMethod = renderCME; 
-} else if (type === 'IPS') {
-renderMethod = renderIPS; 
-} else if (type === 'MPC') {
-  renderMethod = renderMPC; 
-} else if (type === 'GST') {
-  renderMethod = renderGST; 
-} else if (type === 'RBE') {
-  renderMethod = renderRBE; 
-}; 
+const fetches = types.map((type) => {
+  const queryString = formatQueryParams(params);
+  const url = searchURL + type + "?" + queryString;
+  return fetch(url);
+});
 
-  fetch(url)
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      }
-      throw new Error(response.statusText);
-    })
-    .then(renderMethod)
-    .catch(err => {
-      $('#js-error-message').text(`Something went wrong: ${err.message}`);
-    });
+Promise.all(fetches).then(renderGraph);
 }
 
 
-//function displayResults(responseJson) {
-    //console.log(responseJson);
-    // if there are previous results, remove them
-    //$('#results-list').empty();
-    // iterate through the items array
-    //responseJson.forEach(message => {
-      //$('#results-list').append(
-        //`<li>
-          //<p>${message.flrID}</p>
-          //<p>${message.sepID}</p>
-         //</li>`
-     //);
-    //});
-    //display the results section  
-    //$('#results-list').removeClass('hidden');
-  //};
+function renderGraph(dataForEachType) {
+  let dataForEachType = {}; 
+  const flr = dataForEachType[0];
+  const sep = dataForEachType[1];
+  const cme = dataForEachType[2];
+  const gst = dataForEachType[3];
+
+
+  // sum the counts for each day for each type of event
+  //needs to sum up occurences and then return an array
+  // then get the sum of that array 
+
+  var occurencesFLR = data.reduce(function(accumulator, currentValue) {
+    return [...accumulator, ...currentValue.beginTime];
+  })
+
+  console.log(occurencesFLR); 
+
+  dataForEachType = []; 
+
+
+  // adding data to graph
+  dps.push(flr);
+  dps.push(sep);
+  dps.push(cme);
+  dps.push(gst);
+
+  // rendering new data points
+  chart.render();
+}
+
+var renderButton = document.getElementById('renderButton');
+//renderButton.addEventListener('click', renderGraph);
+
 
 function watchForm() {
   $('form').submit(event => {
     event.preventDefault();
-    const type = $('.weather').val();
     const startDate = $('.startDate').val();
     const endDate = $('.endDate').val();
-    getSpaceWeather(type, startDate, endDate);
+    getSpaceWeather(startDate, endDate);
+    renderGraph(dataForEachType); 
   });
 }
 

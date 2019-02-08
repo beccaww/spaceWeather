@@ -1,7 +1,7 @@
 'use strict';
 
 const apiKey2 = '3b7a69e40086f0bc0d16cbda86f286d2876228d2';
-const searchURL2 = 'https://app.climate.azavea.com/api/climate-data/1/RCP45/indicator/average_high_temperature/';
+const searchURL2 = 'https://app.climate.azavea.com/api/climate-data/';
 
 
 function getClimate(name, label, description,) {
@@ -12,7 +12,7 @@ function getClimate(name, label, description,) {
       description: description,
     };
     const queryString = formatQueryParams(params)
-    const url = searchURL + type + '?' + queryString;
+    const url = searchURL2 + name + '?' + queryString;
 
   fetch(url)
     .then(response => {
@@ -32,11 +32,12 @@ function displayResults(responseJson) {
     // if there are previous results, remove them
     $('#results-list').empty();
     // iterate through the items array
-    responseJson.forEach(message => {
-      $('#results-list').append(
+    responseJson.forEach(application => {
+      $('#results-list-earth').append(
         `<li>
-          <p>${message.flrID}</p>
-          <p>${message.sepID}</p>
+          <p>${application.name}</p>
+          <p>${application.label}</p>
+          <p>${application.description}</p>
          </li>`
      );
     });

@@ -1,22 +1,19 @@
 *{
-  box-sizing: border-box;  
+  box-sizing: border-box; 
 }
 
 body {
   position: relative;
+  background: black; 
 }
 
 header {
   text-align: center; 
-  background: blue; 
+  background: url(https://static1.squarespace.com/static/58817d60d2b85782338743f1/t/59acb965f9a61e6ef12a8021/1504491926588/gis+header+1.jpg?format=1500w) no-repeat;
+  background-size: cover; 
   color: white; 
-}
-
-.sideBar {
-  display: inline-block;
-  background: blue; 
-  color: white; 
-  padding: 20px;
+  font-family: 'Orbitron', sans-serif; 
+ 
 }
 
 .weatherList {
@@ -25,12 +22,37 @@ header {
   padding: 0;
 }
 
-.searchBox {
-  position: absolute;
-  display: inline-block;
-  left: 320px;  
-  background: blue; 
+.spaceWeatherDescription {
+  text-align: center; 
+  background: black; 
+  background-size: cover; 
   color: white; 
+  padding: 15px; 
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: .2rem; 
+}
+
+.searchBox {
+  background: url(https://static1.squarespace.com/static/58817d60d2b85782338743f1/t/59acb965f9a61e6ef12a8021/1504491926588/gis+header+1.jpg?format=1500w) no-repeat;
+  background-size: cover; 
+  color: white; 
+  padding: 5px; 
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: .2rem; 
+  text-align: center; 
+  margin: auto; 
+  width: 700px; 
+}
+
+input { 
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: .2rem; 
+  border: none;
+  text-transform: uppercase;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 25px
 }
 
 .hidden {
@@ -38,7 +60,14 @@ header {
 }
 
 .results {
-  background: blue; 
-  color: white; 
+  background: url(https://static1.squarespace.com/static/58817d60d2b85782338743f1/t/59acb965f9a61e6ef12a8021/1504491926588/gis+header+1.jpg?format=1500w) no-repeat;
+  background-size: cover; 
+  color: white;  
   padding: 20px; 
+}
+
+.chart {
+  display: inline-block; 
+  position: relative; 
+  top: 100px;
 }
