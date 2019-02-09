@@ -137,7 +137,6 @@ Promise.all(fetches).then(renderGraph);
 
 
 function renderGraph(dataForEachType) {
-  let dataForEachType = {}; 
   const flr = dataForEachType[0];
   const sep = dataForEachType[1];
   const cme = dataForEachType[2];
@@ -153,8 +152,6 @@ function renderGraph(dataForEachType) {
   })
 
   console.log(occurencesFLR); 
-
-  dataForEachType = []; 
 
 
   // adding data to graph
