@@ -18,12 +18,46 @@
     </section>
     <section class="searchBox">
       <form>
-          Start Date:
-          <input class="startDate" type="date" name="startDate" value="2016-01-01">
-        
-          End Date:
-          <input class="endDate" type="date" name="endDate" value="2016-01-30">
-          
+
+          <label class="monthOption" onchange="generateDays(this)">
+            <input type="radio" value="month" name="answer" required>
+            <span>JAN</span>
+            <input type="radio" value="month" name="answer" required>
+            <span>FEB</span>
+            <input type="radio" value="month" name="answer" required>
+            <span>MAR</span>
+            <input type="radio" value="month" name="answer" required>
+            <span>APR</span>
+            <input type="radio" value="month" name="answer" required>
+            <span>MAY</span>
+            <input type="radio" value="month" name="answer" required>
+            <span>JUN</span>
+            <input type="radio" value="month" name="answer" required>
+            <span>JUL</span>
+            <input type="radio" value="month" name="answer" required>
+            <span>AUG</span>
+            <input type="radio" value="month" name="answer" required>
+            <span>SEP</span>
+            <input type="radio" value="month" name="answer" required>
+            <span>OCT</span>
+            <input type="radio" value="month" name="answer" required>
+            <span>NOV</span>
+            <input type="radio" value="month" name="answer" required>
+            <span>DEC</span>
+            </label>
+          <br>
+          Year: 
+          <select class="year"> 
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+          </select>
           <input type="submit" value="Go!">
         </form>
     </section>
