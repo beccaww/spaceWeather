@@ -71,26 +71,27 @@ function renderGST(responseJson) {
   $("#results-list").removeClass("hidden");
 }
 
+function getMonthRange(year, month) {
+  const start = new Date();
 
-function getDates(){
-// needs to convert month/year to startDate and endDate
-  if (monthOption === "JAN" && year === "2011") {
-    startDate = 01-01-2011
-    endDate = 01-30-2011
-  }
-  else if (month === "FEB" && year === "2011") {
-    startDate = 02-01-2011
-    endDate = 02-28-2011
-  }
+  start.setUTCFullYear(year);
+  start.setUTCMonth(month - 1);
+  start.setUTCDate(1);
 
+  const end = new Date(start.getTime());
+  end.setUTCMonth(end.getUTCMonth() + 1);
+
+  return {
+    startDate: start.toISOString().substr(0, 10),
+    endDate: end.toISOString().substr(0, 10)
+  };
 }
 
-function getSpaceWeather(startDate, endDate) {
-  getDates(); 
+function getSpaceWeather(year, month) {
+  const { startDate, endDate } = getMonthRange(year, month); 
   const types = ["FLR", "SEP", "CME", "GST"];
   const params = {
     api_key: apiKey,
-    //type:  type,
     startDate: startDate,
     endDate: endDate
   };
@@ -158,10 +159,19 @@ var renderButton = document.getElementById("renderButton");
 function watchForm() {
   $("form").submit(event => {
     event.preventDefault();
-    const startDate = $(".startDate").val();
-    const endDate = $(".endDate").val();
-    getSpaceWeather(startDate, endDate);
+    const month = parseInt($("[name=\"month\"]:checked").val(), 10);
+    const year = parseInt($(".year").val(), 10);
+    getSpaceWeather(year, month);
   });
 }
 
-$(watchForm);
+function watchMonthClick() {
+  $('input[name="month"]').on('click', (e) => {
+    e.preventDefault();
+    $('.selected-month').removeClass('selected-month');
+    $(e.currentTarget).parent().addClass('selected-month');
+  });
+}
+
+
+$(watchForm());

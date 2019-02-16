@@ -1,69 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="Space Weather App" content="width=device-width">
+    <meta charset="utf-8" />
+    <meta name="Space Weather App" content="width=device-width" />
     <title>Space Weather App</title>
     <link href="index.css" rel="stylesheet" type="text/css" />
     <link href="grid.css" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Cairo|Orbitron" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Cairo|Orbitron"
+      rel="stylesheet"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header role="banner"><h1>Space Weather and the Earth</h1></header>
     <section class="spaceWeatherDescription">
-      <p>What is space weather? Space weather is phenomena in space caused by the sun that can affect our daily lives on Earth. Four such phenomena are solar flares, coronal mass ejections, geomagnetic storms, and solar energetic particles. These affect many aspects on Earth, such as where it is safe for planes to fly, the overall climate of the planet, and the northern and southern lights.</p>
-      <p>How does space weather affect the Earth like this? It starts with solar flares, which is when the sun experiences sudden increases in its brightness. These are sometimes accompanied by a coronal mass ejection. A coronal mass ejection is a significant release of plasma from the solar corona. This plasma travels through space and sometimes runs into the Earth, leading to a geomagnetic storm. Geomagnetic storms are a temporary disturbance of the Earth’s magnetosphere. This affects the northern and southern lights as well as radio waves on Earth. During solar flares and coronal mass ejections, there may also be an acceleration of particles emitted by the sun. These solar energetic particles can also cause fluctuations in the Earth’s magnetic field, affecting power grids and radio transmissions. </p>
-      <p>Given its affect on the Earth, it is important to observe and document space weather. This app exists to display data straight from NASA and present the relationship between the four aforementioned phenomena to see how often they occur together. By documenting this relationship, we will have a better understanding of how space weather works. </p>
+      <p>
+        What is space weather? Space weather is phenomena in space caused by the
+        sun that can affect our daily lives on Earth. Four such phenomena are
+        solar flares, coronal mass ejections, geomagnetic storms, and solar
+        energetic particles. These affect many aspects on Earth, such as where
+        it is safe for planes to fly, the overall climate of the planet, and the
+        northern and southern lights.
+      </p>
+      <p>
+        How does space weather affect the Earth like this? It starts with solar
+        flares, which is when the sun experiences sudden increases in its
+        brightness. These are sometimes accompanied by a coronal mass ejection.
+        A coronal mass ejection is a significant release of plasma from the
+        solar corona. This plasma travels through space and sometimes runs into
+        the Earth, leading to a geomagnetic storm. Geomagnetic storms are a
+        temporary disturbance of the Earth’s magnetosphere. This affects the
+        northern and southern lights as well as radio waves on Earth. During
+        solar flares and coronal mass ejections, there may also be an
+        acceleration of particles emitted by the sun. These solar energetic
+        particles can also cause fluctuations in the Earth’s magnetic field,
+        affecting power grids and radio transmissions.
+      </p>
+      <p>
+        Given its affect on the Earth, it is important to observe and document
+        space weather. This app exists to display data straight from NASA and
+        present the relationship between the four aforementioned phenomena to
+        see how often they occur together. By documenting this relationship, we
+        will have a better understanding of how space weather works.
+      </p>
     </section>
     <section class="searchBox">
       <form>
+        <label>
+          <input type="radio" value="1" name="month" required />
+          JAN</label
+        >
 
-          <label class="monthOption" onchange="generateDays(this)">
-            <input type="radio" value="month" name="answer" required>
-            <span>JAN</span>
-            <input type="radio" value="month" name="answer" required>
-            <span>FEB</span>
-            <input type="radio" value="month" name="answer" required>
-            <span>MAR</span>
-            <input type="radio" value="month" name="answer" required>
-            <span>APR</span>
-            <input type="radio" value="month" name="answer" required>
-            <span>MAY</span>
-            <input type="radio" value="month" name="answer" required>
-            <span>JUN</span>
-            <input type="radio" value="month" name="answer" required>
-            <span>JUL</span>
-            <input type="radio" value="month" name="answer" required>
-            <span>AUG</span>
-            <input type="radio" value="month" name="answer" required>
-            <span>SEP</span>
-            <input type="radio" value="month" name="answer" required>
-            <span>OCT</span>
-            <input type="radio" value="month" name="answer" required>
-            <span>NOV</span>
-            <input type="radio" value="month" name="answer" required>
-            <span>DEC</span>
-            </label>
-          <br>
-          Year: 
-          <select class="year"> 
-            <option value="2011">2011</option>
-            <option value="2012">2012</option>
-            <option value="2013">2013</option>
-            <option value="2014">2014</option>
-            <option value="2015">2015</option>
-            <option value="2016">2016</option>
-            <option value="2017">2017</option>
-            <option value="2018">2018</option>
-            <option value="2019">2019</option>
-          </select>
-          <input type="submit" value="Go!">
-        </form>
+        <label>
+          <input type="radio" value="2" name="month" required />
+          FEB</label
+        >
+        <label>
+          <input type="radio" value="3" name="month" required />
+          MAR</label
+        >
+        <label
+          ><input type="radio" value="4" name="month" required /> APR</label
+        >
+        <label
+          ><input type="radio" value="5" name="month" required /> MAY</label
+        >
+        <label
+          ><input type="radio" value="6" name="month" required /> JUN</label
+        >
+        <label
+          ><input type="radio" value="7" name="month" required /> JUL</label
+        >
+        <label
+          ><input type="radio" value="8" name="month" required /> AUG</label
+        >
+        <label
+          ><input type="radio" value="9" name="month" required /> SEP</label
+        >
+        <label
+          ><input type="radio" value="10" name="month" required /> OCT</label
+        >
+        <label
+          ><input type="radio" value="11" name="month" required /> NOV</label
+        >
+        <label
+          ><input type="radio" value="12" name="month" required /> DEC</label
+        >
+        <br />
+        Year:
+        <select class="year" name="year">
+          <option value="2011">2011</option>
+          <option value="2012">2012</option>
+          <option value="2013">2013</option>
+          <option value="2014">2014</option>
+          <option value="2015">2015</option>
+          <option value="2016">2016</option>
+          <option value="2017">2017</option>
+          <option value="2018">2018</option>
+          <option value="2019">2019</option>
+        </select>
+        <button type="submit">Go!</button>
+      </form>
     </section>
     <script src="index.js"></script>
     <script src="chart.js"></script>
-    <div id="chartContainer" class="chart hidden" style="height: 300px; width: 100%;"></div>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <div
+      id="chartContainer"
+      class="chart hidden"
+      style="height: 300px; width: 100%;"
+    ></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   </body>
 </html>
