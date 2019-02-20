@@ -9,3 +9,4 @@ dropdown menu of available years to see the occurrences of different space weath
 
 Technology used: HTML, CSS, JavaScript, jQuery
 
+![Image of Space](images/SW1.tiff)
