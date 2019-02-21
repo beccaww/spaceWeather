@@ -9,4 +9,7 @@ dropdown menu of available years to see the occurrences of different space weath
 
 Technology used: HTML, CSS, JavaScript, jQuery
 
-![Image of Space](images/SW1.tiff)
+![Image of Space Weather page](SW1.png)
+![Image of Empty Graph](SW2.png)
+![Image of Filled Graph](SW3.png)
+![Image of Filled Graph2](SW4.png)
