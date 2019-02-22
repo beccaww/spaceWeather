@@ -10,67 +10,7 @@ function formatQueryParams(params) {
   return queryItems.join("&");
 }
 
-function renderFLR(responseJson) {
-  $("#results-list").empty();
-  // iterate through the items array
-  responseJson.forEach(message => {
-    $("#results-list").append(
-      `<li>
-          <p>Flare ID: ${message.flrID}</p>
-          <p>Begin Time: ${message.beginTime}</p>
-          <p>Class Type: ${message.classType}</p>
-          <p>Peak Time: ${message.peakTime}</p>
-         </li>`
-    );
-  });
-  //display the results section
-  $("#results-list").removeClass("hidden");
-}
-
-function renderSEP(responseJson) {
-  console.log(responseJson);
-  $("#results-list").empty();
-  responseJson.forEach(message => {
-    $("#results-list").append(
-      `<li>
-          <p>ID: ${message.sepID}</p>
-          <p>Event Time: ${message.eventTime}</p>
-          <p>Instruments: ${message.instruments}</p>
-         </li>`
-    );
-  });
-  $("#results-list").removeClass("hidden");
-}
-
-function renderCME(responseJson) {
-  console.log(responseJson);
-  $("#results-list").empty();
-  responseJson.forEach(message => {
-    $("#results-list").append(
-      `<li>
-        <p>Activity ID: ${message.activityID}</p>
-        <p>Start Time: ${message.startTime}</p>
-        <p>${message.note}</p>
-       </li>`
-    );
-  });
-  $("#results-list").removeClass("hidden");
-}
-
-function renderGST(responseJson) {
-  console.log(responseJson);
-  $("#results-list").empty();
-  responseJson.forEach(message => {
-    $("#results-list").append(
-      `<li>
-        <p>ID: ${message.gstID}</p>
-        <p>Start Time: ${message.startTime}</p>
-       </li>`
-    );
-  });
-  $("#results-list").removeClass("hidden");
-}
-
+//Get month range for the graph
 function getMonthRange(year, month) {
   const start = new Date();
 
@@ -107,7 +47,8 @@ function getSpaceWeather(year, month) {
   Promise.all(fetches).then(renderGraph);
 }
 
-function getDateHistogram(data, /* startTime... */ time) {
+//Getting the number of occurances for each phenomena
+function getDateHistogram(data, time) {
   const histogram = data
     .reduce(function(acc, event) {
       return [...acc, event[time]];
@@ -154,7 +95,6 @@ function renderGraph(dataForEachType) {
 }
 
 var renderButton = document.getElementById("renderButton");
-//renderButton.addEventListener('click', renderGraph);
 
 function watchForm() {
   $("form").submit(event => {
